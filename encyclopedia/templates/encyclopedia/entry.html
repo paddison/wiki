@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    {% if entry %}
+        {{ entry|safe }}
+        <br>
+        <a href="{%url 'edit' req %}">Edit Page</a>
+    {% else %}
+        <h1 class=errMsg>ERROR</h1>
+        <p class=errMsg>No Page found for <span style="font-weight: bold;">{{ req }}</span></p>        
+    {% endif %}
+{% endblock %}
